@@ -1,24 +1,22 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const Record = require('./models/record')
+
+
+require('./config/mongoose')
+
 const app = express()
 const port = 3000
-
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-const db = mongoose.connection
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(error => console.error(error))
 })
 app.listen(port, () => {
   console.log('App is running on http://localhost:3000')

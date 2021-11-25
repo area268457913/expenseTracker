@@ -2,24 +2,29 @@ const Category = require('../category')
 const db = require('../../config/mongoose')
 const SEED_CATEGORY = [
   {
-    name: '家居物業',
-    icon: 'fas fa-home',
+    name: 'home',
+    name_cn: '家居物業',
+    categoryIcon: 'fas fa-house'
   },
   {
-    name: '交通出行',
-    icon: 'fas fa-shuttle-van',
+    name: 'transportation',
+    name_cn: '交通出行',
+    categoryIcon: 'fas fa-shuttle-van'
   },
   {
-    name: '休閒娛樂',
-    icon: 'fas fa-grin-beam',
+    name: 'entertainment',
+    name_cn: '休閒娛樂',
+    categoryIcon: 'fas fa-grin-beam'
   },
   {
-    name: '餐飲食品',
-    icon: 'fas fa-utensils',
+    name: 'food',
+    name_cn: '餐飲食品',
+    categoryIcon: 'fas fa-utensils'
   },
   {
-    name: '其他',
-    icon: 'fas fa-pen',
+    name: 'else',
+    name_cn: '其他',
+    categoryIcon: 'fas fa-pen'
   },
 ]
 

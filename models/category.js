@@ -4,11 +4,15 @@ const Schema = mongoose.Schema
 const categorySchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
-  icon: {
+  name_cn: {
     type: String,
-    required: true
+    required: true,
+  },
+  categoryIcon: {
+    type: String,
+    required: true,
   }
 })
 
